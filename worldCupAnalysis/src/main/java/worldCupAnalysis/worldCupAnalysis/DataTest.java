@@ -22,7 +22,7 @@ public class DataTest {
 		while (fileLine != null) {
 			if (Utilities.isRelatedLogLine(fileLine, LogTypes.PAGE_VIEWS)) {
 				lineCount += 1;
-				System.out.println(fileLine);
+				System.out.println(Utilities.getLogUrl(fileLine));
 			}
 			fileLine = reader.readLine();
 		}
