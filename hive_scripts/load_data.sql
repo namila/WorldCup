@@ -25,6 +25,7 @@ LOAD DATA LOCAL INPATH '/resource/Data/SampleSet' OVERWRITE INTO TABLE LogDataRa
 
 -- Making it possbile to have all partitions as dynamic
 SET hive.exec.dynamic.partition.mode=nonstrict;
+SET hive.decode.partition.name=true;
 
 -- Creating the cleaned data table
 CREATE TABLE IF NOT EXISTS LogData(
@@ -46,4 +47,4 @@ SELECT source.userId,
  REGEXP_REPLACE(CONCAT(source.logTime1,source.logTime2), "(\\[|\\])", ""),
  Hour(from_unixtime(unix_timestamp(REGEXP_REPLACE(CONCAT(source.logTime1,source.logTime2), "(\\[|\\])", ""), "dd/MMM/yyyy:HH:mm:ss"))),
  source.request2, source.statusCode, source.dataSize, source.request2 RLIKE ".+\.(htm|html)$",
- REGEXP_EXTRACT(source.logTime1, "\\d+/\\w+/\\d+", 0),REGEXP_REPLACE(source.request1,"\"", ""); 
+ REGEXP_REPLACE(REGEXP_EXTRACT(source.logTime1, "\\d+/\\w+/\\d+", 0),"/","-"), REGEXP_REPLACE(source.request1,"\"", ""); 
