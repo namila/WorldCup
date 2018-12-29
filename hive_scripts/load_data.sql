@@ -30,6 +30,7 @@ SET hive.exec.dynamic.partition.mode=nonstrict;
 CREATE TABLE IF NOT EXISTS LogData(
   userId INT,
   logTimeStamp STRING,
+  hourOfDay INT,
   request STRING,
   statusCode INT,
   dataSize DOUBLE,
@@ -41,6 +42,8 @@ STORED AS TEXTFILE;
 -- Loading Data into the cleaned table
 FROM LogDataRaw source 
 INSERT OVERWRITE TABLE LogData PARTITION(logDate, requestType)
-SELECT source.userId, REGEXP_REPLACE(CONCAT(source.logTime1,source.logTime2), "(\\[|\\])", ""),
+SELECT source.userId,
+ REGEXP_REPLACE(CONCAT(source.logTime1,source.logTime2), "(\\[|\\])", ""),
+ Hour(from_unixtime(unix_timestamp(REGEXP_REPLACE(CONCAT(source.logTime1,source.logTime2), "(\\[|\\])", ""), "dd/MMM/yyyy:HH:mm:ss"))),
  source.request2, source.statusCode, source.dataSize, source.request2 RLIKE ".+\.(htm|html)$",
  REGEXP_EXTRACT(source.logTime1, "\\d+/\\w+/\\d+", 0),REGEXP_REPLACE(source.request1,"\"", ""); 
