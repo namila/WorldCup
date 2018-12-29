@@ -1,0 +1,4 @@
+USE worldcup;
+DROP TABLE IF EXISTS LogData;
+DROP TABLE IF EXISTS LogDataRaw;
+DROP DATABASE worldcup;

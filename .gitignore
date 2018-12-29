@@ -1,2 +1,4 @@
 /bin/
 worldCupAnalysis/target
+derby.log
+metastore_db
