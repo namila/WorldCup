@@ -35,7 +35,9 @@ CREATE TABLE IF NOT EXISTS LogData(
   request STRING,
   statusCode INT,
   dataSize DOUBLE,
-  isHTML BOOLEAN
+  isHTML BOOLEAN,
+  isFrench BOOLEAN,
+  isEnglish BOOLEAN
 )
 PARTITIONED BY (logDate STRING, requestType STRING)
 STORED AS TEXTFILE;
@@ -47,4 +49,5 @@ SELECT source.userId,
  REGEXP_REPLACE(CONCAT(source.logTime1,source.logTime2), "(\\[|\\])", ""),
  Hour(from_unixtime(unix_timestamp(REGEXP_REPLACE(CONCAT(source.logTime1,source.logTime2), "(\\[|\\])", ""), "dd/MMM/yyyy:HH:mm:ss"))),
  source.request2, source.statusCode, source.dataSize, source.request2 RLIKE ".+\.(htm|html)$",
+ source.request2 RLIKE "/french.*", source.request2 RLIKE "/english.*",
  REGEXP_REPLACE(REGEXP_EXTRACT(source.logTime1, "\\d+/\\w+/\\d+", 0),"/","-"), REGEXP_REPLACE(source.request1,"\"", ""); 
