@@ -1,3 +1,6 @@
+-- Creating the database
+CREATE DATABASE IF NOT EXISTS worldcup;
+
 USE worldcup;
 
 -- Raw table for time table data
