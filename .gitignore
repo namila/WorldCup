@@ -2,3 +2,4 @@
 worldCupAnalysis/target
 derby.log
 metastore_db
+dashboard/node_modules
