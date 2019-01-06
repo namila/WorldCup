@@ -15,3 +15,11 @@
 #section-navigator a{
   cursor: pointer;
 }
+
+#language-percentage-chart{
+ margin-left: 200px;
+}
+
+#error-percentage-chart{
+  margin-left: 200px;
+ }

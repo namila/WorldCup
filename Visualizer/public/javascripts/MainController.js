@@ -11,14 +11,9 @@
       HISTROGRAM_UNIQUE_PAGE_VISITS: "HISTROGRAM_UNIQUE_PAGE_VISITS",
       HISTROGRAM_VISITOR_COUNT: "HISTROGRAM_VISITOR_COUNT",
       TOP_TEN: "TOP_TEN",
-      SIX: 6,
-      SEVEN: 7,
-      EIGHT: 8,
-      NINE: 9,
-      TEN: 10
-    }
-    
-    $scope.currentPageIndex = $scope.pageIndex.TOTAL_PAGE_VISITS;
+      LANGUAGE_PERCENTAGE: "LANGUAGE_PERCENTAGE",
+      ERROR_PERCENTAGE: "ERROR_PERCENTAGE"
+    };
 
     $scope.moveToPage = function(page){
       $scope.currentPageIndex = page;
@@ -27,8 +22,7 @@
     }
     
     function loadData(){
-      
-      
+      $scope.currentPageIndex = $scope.pageIndex.TOTAL_PAGE_VISITS
     }
 
     loadData();

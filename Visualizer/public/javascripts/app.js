@@ -25,6 +25,14 @@
       url: '/top-ten',
       templateUrl: '../views/top-ten.html',
       controller:'TopTenController'
+    }).state('LANGUAGE_PERCENTAGE',{
+      url: '/language-percentage',
+      templateUrl: '../views/language-percentage.html',
+      controller:'LanguagePercentageController'
+    }).state('ERROR_PERCENTAGE',{
+      url: '/error-percentage',
+      templateUrl: '../views/error-percentage.html',
+      controller:'ErrorPercentageController'
     });
   });
 }());

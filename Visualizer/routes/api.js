@@ -117,13 +117,47 @@ router.get('/top-ten', function(req, res, next){
 
     });
   }
-  
+
   res.send(
     {
      userData:userData,
      pageData: pageData
     }
   );
+});
+
+
+router.get('/language-percentage', function(req, res, next){
+  var visitorCountData = fs.readFileSync('processedFiles/8-percentage_page_views_by_language','utf8')
+  var languagePercentages = visitorCountData.split('\t');
+  var languageData = [
+    {
+      language: 'French',
+      percentage: Number(languagePercentages[0].trim()).toFixed(3)
+    },
+    {
+      language: 'English',
+      percentage: Number(languagePercentages[1].trim()).toFixed(3)
+    },
+    {
+      language: 'Spanish',
+      percentage: Number(languagePercentages[2].trim()).toFixed(3)
+    }
+  ];
+
+  res.send({data: languageData});
+});
+
+router.get('/error-percentage', function(req, res, next){
+  var errorPercentageData = fs.readFileSync('processedFiles/9-error_percentage','utf8')
+  var errorPercentage = Number(errorPercentageData);
+  var successPercantage = 100 - errorPercentage;
+  
+  res.send({ data: {
+    successPercantage: successPercantage.toFixed(2),
+    errorPercentage: errorPercentage.toFixed(2)
+  }});
+
 });
 
 module.exports = router;

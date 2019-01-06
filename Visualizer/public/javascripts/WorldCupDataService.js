@@ -111,14 +111,58 @@
       return defferedObject.promise;
     }
 
+    function getLanguageData(){
+      var uri = baseUri + 'language-percentage';
+      
+      var languageResource = $resource(uri, {}, {
+        get:{
+          method: 'GET',
+          isArray: false
+        }
+      });
 
+      var defferedObject = $q.defer();
+
+      languageResource.get({}, function(data){
+        defferedObject.resolve(data);
+      }, function(response){
+        defferedObject.reject(response);
+      });
+
+      return defferedObject.promise;
+
+    }
+
+    function getErrorPercentage(){
+      var uri = baseUri + 'error-percentage';
+      
+      var errorResource = $resource(uri, {}, {
+        get:{
+          method: 'GET',
+          isArray: false
+        }
+      });
+
+      var defferedObject = $q.defer();
+
+      errorResource.get({}, function(data){
+        defferedObject.resolve(data);
+      }, function(response){
+        defferedObject.reject(response);
+      });
+
+      return defferedObject.promise;
+
+    }
 
     return{
       getTotalPageVisits: getTotalPageVisits,
       getTotalVisitsByHour: getTotalVisitsByHour,
       getUniqueVisitsByHour: getUniqueVisitsByHour,
       getVisitorCount: getVisitorCount,
-      getTopTen: getTopTen
+      getTopTen: getTopTen,
+      getLanguageData: getLanguageData,
+      getErrorPercentage: getErrorPercentage
     }
   }]);
 }());
