@@ -1,0 +1,13 @@
+
+.page-visits-counter{
+  margin-bottom: 20px;
+}
+
+.page-visits-counter .card-header{
+  font-size: 25px;
+}
+
+.page-visits-counter .card-body .counter-element{
+  font-size: 80px;
+  text-align: center;
+}

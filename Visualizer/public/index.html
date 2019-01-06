@@ -1,0 +1,52 @@
+<html ng-app="appModule">
+
+<head>
+  <title>
+    World cup data analysis
+  </title>
+  <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+
+  </link>
+</head>
+
+<body ng-controller="MainController">
+  <div class="jumbotron">
+    <h1>World Cup 1998</h1>
+  </div>
+
+  <div class="row">
+
+    <div class="col-1">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" ng-click="moveToPage(pageIndex.ONE)" ng-class="{'active': currentPageIndex == pageIndex.ONE}" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+          aria-selected="true">Page Visits</a>
+        <a class="nav-link" ng-click="moveToPage(pageIndex.TWO)" ng-class="{'active': currentPageIndex == pageIndex.TWO}" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+          aria-selected="false">Profile</a>
+        <a class="nav-link" ng-click="moveToPage(pageIndex.THREE)" ng-class="{'active': currentPageIndex == pageIndex.THREE}" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+          aria-selected="false">Messages</a>
+        <a class="nav-link" ng-click="moveToPage(pageIndex.FOUR)" ng-class="{'active': currentPageIndex == pageIndex.FOUR}" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
+          aria-selected="false">Settings</a>
+      </div>
+    </div>
+
+    <div class="col-11" ui-view>
+        
+    </div>
+
+
+  </div>
+  <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script> 
+  <script type="text/javascript" src="node_modules/jquery.easing/jquery.easing.js"></script>   
+  <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+  <script type="text/javascript" src="node_modules/angular-resource/angular-resource.js"></script>
+  <script type="text/javascript" src="node_modules/@uirouter/angularjs/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="node_modules/angular-counter/js/angular-counter.js"></script>  
+  <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="javascripts/app.js"></script>
+  <script type="text/javascript" src="javascripts/WorldCupDataService.js"></script>
+  <script type="text/javascript" src="javascripts/MainController.js"></script>
+  <script type="text/javascript" src="javascripts/TotalPageVisitsController.js"></script>  
+</body>
+
+</html>

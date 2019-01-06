@@ -1,0 +1,45 @@
+<div class="row container-fluid">
+    
+  <div class="col-sm-6 col-md-6 col-lg-6" ng-init="totalPageVisits = 0">
+        <div class="card page-visits-counter">
+            <div class="card-header">Total Page Visits</div>
+            <div class="card-body">
+              <counter class="counter-element"
+              value="totalPageVisitsCounter"
+              to="totalPageVisits"
+              duration="5000"
+              effect="easeInSine"> 
+                {{totalPageVisitsCounter | number:0 }} </div>
+            </counter>
+          </div>      
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="card page-visits-counter">
+            <div class="card-header">Unique Page Visits</div>
+            <div class="card-body">
+              <counter class="counter-element"
+              value="uniquePageVisitsCounter"
+              to="uniquePageVisits"
+              duration="5000"
+              effect="easeInSine"> 
+                {{uniquePageVisitsCounter | number:0 }} </div>
+            </counter>
+          </div>      
+    </div>
+
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="card page-visits-counter">
+            <div class="card-header">Average Page Visits Per Day</div>
+            <div class="card-body">
+              <counter class="counter-element"
+              value="averageVisitsPerDayCounter"
+              to="averageVisitsPerDay"
+              duration="5000"
+              effect="easeInSine"> 
+                {{averageVisitsPerDayCounter | number:0 }} </div>
+            </counter>
+          </div>      
+    </div>
+</div>
+

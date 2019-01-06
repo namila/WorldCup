@@ -1,0 +1,22 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.20",
+    "angular": "^1.7.5",
+    "angular-counter": "git+https://github.com/izy-izzy/angular-counter.git",
+    "angular-resource": "^1.7.5",
+    "bootstrap": "^4.2.1",
+    "jquery": "^3.3.1",
+    "jquery.easing": "^1.4.1",
+    "popper.js": "^1.14.6"
+  },
+  "devDependencies": {}
+}
