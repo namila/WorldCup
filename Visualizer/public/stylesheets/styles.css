@@ -11,3 +11,7 @@
   font-size: 80px;
   text-align: center;
 }
+
+#section-navigator a{
+  cursor: pointer;
+}

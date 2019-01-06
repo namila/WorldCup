@@ -2,7 +2,7 @@
 
 <head>
   <title>
-    World cup data analysis
+    World Cup Data Analysis
   </title>
   <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
@@ -18,14 +18,14 @@
   <div class="row">
 
     <div class="col-2">
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link" ng-click="moveToPage(pageIndex.ONE)" ng-class="{'active': currentPageIndex == pageIndex.ONE}" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home"
+      <div class="nav flex-column nav-pills" id="section-navigator" role="tablist" aria-orientation="vertical">
+        <a class="nav-link" ng-click="moveToPage(pageIndex.TOTAL_PAGE_VISITS)" ng-class="{'active': currentPageIndex == pageIndex.TOTAL_PAGE_VISITS}" id="v-pills-home-tab" data-toggle="pill"   role="tab" aria-controls="v-pills-home"
           aria-selected="true">Page Visits</a>
-        <a class="nav-link" ng-click="moveToPage(pageIndex.TWO)" ng-class="{'active': currentPageIndex == pageIndex.TWO}" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+        <a class="nav-link" ng-click="moveToPage(pageIndex.HISTROGRAM_TOTAL_PAGE_VISITS)" ng-class="{'active': currentPageIndex == pageIndex.HISTROGRAM_TOTAL_PAGE_VISITS}" id="v-pills-profile-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-profile"
           aria-selected="false"> Total Page Visits Histogram</a>
-        <a class="nav-link" ng-click="moveToPage(pageIndex.THREE)" ng-class="{'active': currentPageIndex == pageIndex.THREE}" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+        <a class="nav-link" ng-click="moveToPage(pageIndex.THREE)" ng-class="{'active': currentPageIndex == pageIndex.THREE}" id="v-pills-messages-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-messages"
           aria-selected="false">Unique Page Visits Histogram</a>
-        <a class="nav-link" ng-click="moveToPage(pageIndex.FOUR)" ng-class="{'active': currentPageIndex == pageIndex.FOUR}" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
+        <a class="nav-link" ng-click="moveToPage(pageIndex.FOUR)" ng-class="{'active': currentPageIndex == pageIndex.FOUR}" id="v-pills-settings-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-settings"
           aria-selected="false">Settings</a>
       </div>
     </div>
@@ -47,7 +47,8 @@
   <script type="text/javascript" src="javascripts/app.js"></script>
   <script type="text/javascript" src="javascripts/WorldCupDataService.js"></script>
   <script type="text/javascript" src="javascripts/MainController.js"></script>
-  <script type="text/javascript" src="javascripts/TotalPageVisitsController.js"></script>  
+  <script type="text/javascript" src="javascripts/TotalPageVisitsController.js"></script> 
+  <script type="text/javascript" src="javascripts/HistogramTotalPageVisitsController.js"></script>  
 </body>
 
 </html>

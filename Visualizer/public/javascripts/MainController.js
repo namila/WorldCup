@@ -2,12 +2,12 @@
 (function () {
   var appModule = angular.module('appModule');
 
-  appModule.controller('MainController', ['$scope', function ($scope) {
+  appModule.controller('MainController', ['$scope', '$state', function ($scope, $state) {
     $scope.mainTitle = "World Cup 1998 analysis";
 
     $scope.pageIndex = {
-      ONE: 1,
-      TWO: 2,
+      TOTAL_PAGE_VISITS: "TOTAL_PAGE_VISITS",
+      HISTROGRAM_TOTAL_PAGE_VISITS: "HISTROGRAM_TOTAL_PAGE_VISITS",
       THREE: 3,
       FOUR: 4,
       FIVE: 5,
@@ -17,15 +17,18 @@
       NINE: 9,
       TEN: 10
     }
-
-    $scope.currentPageIndex = null;
+    
+    $scope.currentPageIndex = $scope.pageIndex.TOTAL_PAGE_VISITS;
 
     $scope.moveToPage = function(page){
       $scope.currentPageIndex = page;
+      $state.go(page);
+
     }
     
     function loadData(){
-      $scope.currentPageIndex = $scope.pageIndex.ONE;
+      
+      
     }
 
     loadData();
