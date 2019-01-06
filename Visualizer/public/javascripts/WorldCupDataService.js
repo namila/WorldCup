@@ -69,10 +69,34 @@
       return defferedObject.promise;
     }
 
+    function getVisitorCount(){
+      var uri = baseUri + 'visitor_count';
+      
+      var visitorCountResource = $resource(uri, {}, {
+        get:{
+          method: 'GET',
+          isArray: false
+        }
+      });
+
+      var defferedObject = $q.defer();
+
+      visitorCountResource.get({}, function(data){
+        defferedObject.resolve(data);
+      }, function(response){
+        defferedObject.reject(response);
+      });
+
+      return defferedObject.promise;
+    }
+
+
+
     return{
       getTotalPageVisits: getTotalPageVisits,
       getTotalVisitsByHour: getTotalVisitsByHour,
-      getUniqueVisitsByHour: getUniqueVisitsByHour
+      getUniqueVisitsByHour: getUniqueVisitsByHour,
+      getVisitorCount: getVisitorCount
     }
   }]);
 }());

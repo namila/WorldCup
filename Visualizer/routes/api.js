@@ -61,4 +61,25 @@ router.get('/unique_visits_by_hour', function(req, res, next){
   res.send({data:dataSet});
 });
 
+router.get('/visitor_count', function(req, res, next){
+  var visitorCountData = fs.readFileSync('processedFiles/5-histogram_no_of_visitors_per_day','utf8')
+  var dataSet = [];
+  var lines = visitorCountData.split('\n');
+  var dataPoint = null;
+  
+  for(var i = 0; i < lines.length; ++i){
+    if(lines[i] == ""){
+      continue;
+    }
+    dataPoint = lines[i].split("\t");
+    dataSet.push({
+      visitorCount: dataPoint[0].trim(),
+      dayCount: dataPoint[1].trim()
+
+    });
+  }
+  
+  res.send({data:dataSet});
+});
+
 module.exports = router;
