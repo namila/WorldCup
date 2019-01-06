@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Utilities {
-	private static String regexPatternStringForPageView = "\\d*\\s-\\s-\\s\\[.*\\]\\s\\\"GET\\s/(english|french)/.*\\.(htm|html)\\s.*";
+	private static String regexPatternStringForPageView = "\\d*\\s-\\s-\\s\\[.*\\]\\s\\\"GET\\s/(english|french|spanish)/.*\\.(htm|html)\\s.*\\s200\\s.*";
 	private static Pattern pageViewsPattern = null;
 	
 	private static String regexPatternForPageViewUrlSection = "\".*\"";
