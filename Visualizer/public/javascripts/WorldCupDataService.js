@@ -90,13 +90,35 @@
       return defferedObject.promise;
     }
 
+    function getTopTen(){
+      var uri = baseUri + 'top-ten';
+      
+      var topTenResource = $resource(uri, {}, {
+        get:{
+          method: 'GET',
+          isArray: false
+        }
+      });
+
+      var defferedObject = $q.defer();
+
+      topTenResource.get({}, function(data){
+        defferedObject.resolve(data);
+      }, function(response){
+        defferedObject.reject(response);
+      });
+
+      return defferedObject.promise;
+    }
+
 
 
     return{
       getTotalPageVisits: getTotalPageVisits,
       getTotalVisitsByHour: getTotalVisitsByHour,
       getUniqueVisitsByHour: getUniqueVisitsByHour,
-      getVisitorCount: getVisitorCount
+      getVisitorCount: getVisitorCount,
+      getTopTen: getTopTen
     }
   }]);
 }());

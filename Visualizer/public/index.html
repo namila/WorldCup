@@ -27,6 +27,8 @@
           aria-selected="false">Unique Page Visits By Hour</a>
         <a class="nav-link" ng-click="moveToPage(pageIndex.HISTROGRAM_VISITOR_COUNT)" ng-class="{'active': currentPageIndex == pageIndex.HISTROGRAM_VISITOR_COUNT}" id="v-pills-settings-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-settings"
           aria-selected="false">Vistor Count Per Day</a>
+        <a class="nav-link" ng-click="moveToPage(pageIndex.TOP_TEN)" ng-class="{'active': currentPageIndex == pageIndex.TOP_TEN}" id="v-pills-settings-tab" data-toggle="pill"  role="tab" aria-controls="v-pills-settings"
+          aria-selected="false">Top Ten</a>
       </div>
     </div>
 
@@ -51,6 +53,7 @@
   <script type="text/javascript" src="javascripts/HistogramTotalPageVisitsController.js"></script> 
   <script type="text/javascript" src="javascripts/HistogramUniquePageVisitsController.js"></script> 
   <script type="text/javascript" src="javascripts/HistogramVisitorCountController.js"></script> 
+  <script type="text/javascript" src="javascripts/TopTenController.js"></script> 
   
 </body>
 

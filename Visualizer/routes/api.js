@@ -82,4 +82,48 @@ router.get('/visitor_count', function(req, res, next){
   res.send({data:dataSet});
 });
 
+router.get('/top-ten', function(req, res, next){
+  var topUserData = fs.readFileSync('processedFiles/6-top_10_users_by_page_views','utf8');
+  var topPageData = fs.readFileSync('processedFiles/7-top_10_pages_by_views','utf8');
+  
+  var userData = [];
+  var userLines = topUserData.split('\n');
+  var dataPoint = null;
+
+  for(var i = 0; i < userLines.length; ++i){
+    if(userLines[i] == ""){
+      continue;
+    }
+    dataPoint = userLines[i].split("\t");
+    userData.push({
+      userId: dataPoint[0].trim(),
+      viewCount: dataPoint[1].trim()
+
+    });
+  }
+
+  var pageData = [];
+  var pageLines = topPageData.split('\n');
+
+  for(var i = 0; i < pageLines.length; ++i){
+    if(pageLines[i] == ""){
+      continue;
+    }
+
+    dataPoint = pageLines[i].split("\t");
+    pageData.push({
+      pageUrl: dataPoint[0].trim(),
+      viewCount: dataPoint[1].trim()
+
+    });
+  }
+  
+  res.send(
+    {
+     userData:userData,
+     pageData: pageData
+    }
+  );
+});
+
 module.exports = router;

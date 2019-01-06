@@ -21,6 +21,10 @@
       url: '/histogram-visitor-count',
       templateUrl: '../views/histogram-visitor-count.html',
       controller:'HistogramVisitorCountController'
+    }).state('TOP_TEN',{
+      url: '/top-ten',
+      templateUrl: '../views/top-ten.html',
+      controller:'TopTenController'
     });
   });
 }());
