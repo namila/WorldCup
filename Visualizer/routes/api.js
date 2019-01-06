@@ -20,9 +20,45 @@ router.get('/page_visits', function(req, res, next) {
 
 router.get('/total_visits_by_hour', function(req, res, next){
   var totalVisitsPerHourData = fs.readFileSync('processedFiles/4-histogram_total_visits_by_hour','utf8')
+  var dataSet = [];
   var lines = totalVisitsPerHourData.split('\n');
-  console.log(lines[0]);
-  res.send({line: lines[0]});
+  var dataPoint = null;
+  
+  for(var i = 0; i < lines.length; ++i){
+    if(lines[i] == ""){
+      continue;
+    }
+    dataPoint = lines[i].split("\t");
+    dataSet.push({
+      hour: dataPoint[0].trim(),
+      count: dataPoint[1].trim()
+
+    });
+  }
+  
+  res.send({data:dataSet});
+});
+
+
+router.get('/unique_visits_by_hour', function(req, res, next){
+  var uniqueVisitsPerHourData = fs.readFileSync('processedFiles/4-histogram_total_unique_visits_by_hour','utf8')
+  var dataSet = [];
+  var lines = uniqueVisitsPerHourData.split('\n');
+  var dataPoint = null;
+  
+  for(var i = 0; i < lines.length; ++i){
+    if(lines[i] == ""){
+      continue;
+    }
+    dataPoint = lines[i].split("\t");
+    dataSet.push({
+      hour: dataPoint[0].trim(),
+      count: dataPoint[1].trim()
+
+    });
+  }
+  
+  res.send({data:dataSet});
 });
 
 module.exports = router;

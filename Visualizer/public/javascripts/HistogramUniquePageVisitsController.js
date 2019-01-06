@@ -2,27 +2,27 @@
 (function () {
   var appModule = angular.module('appModule');
 
-  appModule.controller('HistogramTotalPageVisitsController', ['$scope', 'WorldCupDataService', function ($scope, WorldCupDataService) {  
-    $scope.pageTitle = "HistogramTotalPageVisitsController";
+  appModule.controller('HistogramUniquePageVisitsController', ['$scope', 'WorldCupDataService', function ($scope, WorldCupDataService) {  
+    $scope.pageTitle = "HistogramUniquePageVisitsController";
     
     function loadData(){
-      var TotalVisitsByHourPromise = WorldCupDataService.getTotalVisitsByHour();
+      var uniqueVisitsByHourPromise = WorldCupDataService.getUniqueVisitsByHour();
       
-      TotalVisitsByHourPromise.then(function(response){
+      uniqueVisitsByHourPromise.then(function(response){
         var labels = [];
         var values = [];
         angular.forEach(response.data, function(record, recordKey){
           labels.push(Number(record.hour));
           values.push(Number(record.count));
         });
-        var chartContext = $("#histogram-total-page-visits");
+        var chartContext = $("#histogram-unique-page-visits");
         var chart = new Chart(chartContext,{
           type:'line',
           data:{
             labels: labels,
             datasets:[
               {
-                label:"Total page visits",
+                label:"Unique page visits",
                 data: values
               }
             ]

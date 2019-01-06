@@ -47,9 +47,32 @@
       return defferedObject.promise;
     }
 
+
+    function getUniqueVisitsByHour(){
+      var uri = baseUri + 'unique_visits_by_hour';
+      
+      var uniqueVisitsByHourResource = $resource(uri, {}, {
+        get:{
+          method: 'GET',
+          isArray: false
+        }
+      });
+
+      var defferedObject = $q.defer();
+
+      uniqueVisitsByHourResource.get({}, function(data){
+        defferedObject.resolve(data);
+      }, function(response){
+        defferedObject.reject(response);
+      });
+
+      return defferedObject.promise;
+    }
+
     return{
       getTotalPageVisits: getTotalPageVisits,
-      getTotalVisitsByHour: getTotalVisitsByHour
+      getTotalVisitsByHour: getTotalVisitsByHour,
+      getUniqueVisitsByHour: getUniqueVisitsByHour
     }
   }]);
 }());

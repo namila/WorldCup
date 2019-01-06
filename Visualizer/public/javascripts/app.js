@@ -13,6 +13,10 @@
       url: '/histogram-total-page-visits',
       templateUrl: '../views/histogram-total-page-visits.html',
       controller:'HistogramTotalPageVisitsController'
+    }).state('HISTROGRAM_UNIQUE_PAGE_VISITS', {
+      url: '/histogram-unique-page-visits',
+      templateUrl: '../views/histogram-unique-page-visits.html',
+      controller:'HistogramUniquePageVisitsController'
     });
   });
 }());
